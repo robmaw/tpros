@@ -1,4 +1,5 @@
 #include <TinyPICO.h>
+#include <wificonfig.h>
 #include <Arduino.h>
 #include <micro_ros_platformio.h>
 
@@ -47,7 +48,7 @@ void setup() {
   Serial.begin(115200);
   //set_microros_serial_transports(Serial);
   //set_microros_wifi_transports("WIFI SSID", "WIFI PASS", "192.168.1.57", 8888);
-  set_microros_wifi_transports("nhn2","E73CDCRNLD",)
+  set_microros_wifi_transports(ssid,psk,agent_ip,agent_port)
   delay(2000);
 
   allocator = rcl_get_default_allocator();
