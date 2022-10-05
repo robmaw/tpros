@@ -1,4 +1,5 @@
 #include <TinyPICO.h>
+#include <wificonfig.h>
 #include <Arduino.h>
 #include <micro_ros_platformio.h>
 
@@ -8,9 +9,9 @@
 
 #include <std_msgs/msg/int32.h>
 
-#if !defined(MICRO_ROS_TRANSPORT_ARDUINO_SERIAL)
-#error This example is only avaliable for Arduino framework with serial transport.
-#endif
+// #if !defined(MICRO_ROS_TRANSPORT_ARDUINO_SERIAL)
+// #error This example is only avaliable for Arduino framework with serial transport.
+// #endif
 
 rcl_publisher_t publisher;
 std_msgs__msg__Int32 msg;
@@ -45,7 +46,9 @@ void setup() {
   tp.DotStar_SetPixelColor( 255, 128, 0 );
   // Configure serial transport
   Serial.begin(115200);
-  set_microros_serial_transports(Serial);
+  //set_microros_serial_transports(Serial);
+  //set_microros_wifi_transports("WIFI SSID", "WIFI PASS", "192.168.1.57", 8888);
+  set_microros_wifi_transports(ssid,psk,agent_ip,agent_port)
   delay(2000);
 
   allocator = rcl_get_default_allocator();
