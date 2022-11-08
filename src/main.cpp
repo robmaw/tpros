@@ -79,7 +79,7 @@ void setup() {
   RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));
   RCCHECK(rclc_executor_add_timer(&executor, &timer));
 
-  msg.data = 0;
+  msg.data = 42;
   //delay(1000);
   tp.DotStar_SetPixelColor( 0, 255, 0 );
 }
